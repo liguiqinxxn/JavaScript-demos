@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ZH-cn">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>JavaScript练习</title>
+</head>
+<body>
+<p>输入数字并点击验证按钮：</p>
+
+<input id="id1" type="number" min="100" max="300" required>
+<button onclick="myFunction()">验证</button>
+<p>1.如果输入的数字小于100或大于300，会提示错误信息。</p>
+<p id="demo"></p>
+
+
+<input id="id2" type="numeber" max="100" required>
+<button onclick="myFunction1()">验证</button>
+<p>2.如果输入的数字大于100（input的max属性），会显示错误信息。</p>
+<p id="demo1"></p>
+
+<input id="id3" type="number" min="100" required>
+<button onclick="myFunction2()">验证</button>
+<p>3.如果输入的数字小于100（input的min属性），会显示错误信息。</p>
+<p id="demo2"></p>
+
+<script>
+	function myFunction(){
+		var inpObj =document.getElementById('id1');
+		if (inpObj.checkValidity()==false) {
+			document.getElementById("demo").innerHTML=inpObj.validationMessage;
+		}else{
+
+			document.getElementById("demo").innerHTML="输入正确";
+		}
+	}
+
+	function myFunction1(){
+		var txt="";
+		if (document.getElementById("id2").validity.rangeOverflow) {
+			txt="输入的值太大了";
+		} else{
+			txt="输入正确";
+		}
+		document.getElementById("demo1").innerHTML=txt;
+	}
+
+	function myFunction2(){
+		var txt2="";
+		var inpObj3 =document.getElementById('id3');
+		if (!isNumeric(inpObj3.value)) {
+			txt2="输入的不是数字";
+		}else if (inpObj3.validity.rangeUnderflow) {
+			txt2="输入的值太小了";
+		} else{
+			txt2="输入正确";
+		}
+		document.getElementById("demo2").innerHTML=txt2;
+	}
+	//判断输入是否为数字
+	function isNumeric(n){
+		return (!isNaN(parseFloat(n)) && isFinite(n));
+	}
+</script>
+
+</body>
+
+</html>

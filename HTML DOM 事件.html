@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ZH-cn">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>JavaScript练习</title>
+</head>
+
+<body onload="mymessage()"> 
+
+
+<div onmouseover="mOver(this)" onmouseout="mOut(this)" style="background-color:#D94A38;width:120px;height:20px;padding:40px;">Mouse Over Me</div>
+
+<img  id="myimage" onmousedown="lighton()" onmouseup="lightoff()" src="pic_bulboff.gif" width="100" height="180">
+<p>点击不释放鼠标灯将一直亮着！</p>
+
+输入你的名字：<input type="text" onfocus="myFunction(this)">
+<p>当输入框获取焦点时，修改背景色（background—color属性）将被触发。</p>
+
+<p onmouseover="style.color='red'" onmouseout="style.color='yellow'">将鼠标移至文字上</p>
+
+<script>
+	function mOver(obj){
+		obj.innerHTML="THANK YOU"
+	}
+	function mOut(obj){
+		obj.innerHTML="Mouse Over Me"
+	}
+
+	function lighton(){
+		document.getElementById('myimage').src="pic_bulbon.gif";
+	}
+	function lightoff(){
+		document.getElementById('myimage').src="pic_bulboff.gif";
+	}
+	function mymessage(){
+		alert("消息在onload事件触发后弹出。");
+	}
+	function myFunction(x){
+		x.style.background="yellow";
+	}
+</script>
+</body>
+</html>

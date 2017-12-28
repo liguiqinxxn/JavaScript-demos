@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ZH-cn">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>JavaScript练习</title>
+</head>
+<body>
+<script>
+	function validateForm(){
+		var x=document.forms["myForm"]["fname"].value;
+		if (x==null||x=="") {
+			alert("需要输入名字。");
+			return false;
+		};
+	}
+
+	function myFunction(){
+		var x,text;
+
+		//获取 id=“numb”的值
+		x=document.getElementById('numb').value;
+		//如果输入的值x不是数字或者小于1或者大于10，则提示错误Not a number or less than one or greater than 10
+		if (isNaN(x)||x<1||x>10) {
+			text="输入错误";
+		} else {
+			text="输入正确";
+	    }
+	    document.getElementById("demo").innerHTML=text;
+}
+
+
+    function validateEmailForm(){
+    	var x=document.forms["myForm1"]["email"].value;
+    	var atpos=x.indexOf("@");  //indexOf() 方法可返回某个指定的字符串值在字符串中首次出现的位置。
+如果没有找到匹配的字符串则返回 -1。
+    	var dotpos=x.lastIndexOf("."); //lastIndexOf() 方法可返回一个指定的字符串值最后出现的位置，如果指定第二个参数 start，则在一个字符串中的指定位置从后向前搜索。 该方法将从后向前检索字符串，但返回是从起始位置 (0) 开始计算子字符串最后出现的位置。 看它是否含有字符串。
+//开始检索的位置在字符串的 start 处或字符串的结尾（没有指定 start 时）。
+//如果没有找到匹配字符串则返回 -1 。
+    	if (atpos<1||dotpos<atpos+2||dotpos+2>=x.length) {
+    		alert("不是一个有效的e-mail地址");
+    		return false;
+    	};
+    }
+</script>
+<form name="myForm" action="http://www.baidu.com" onsubmit="return validateForm()" method="post">
+名字：<input type="text" name="fname">
+<input type="submit" value="提交">
+<p>1.此提交是上传到服务器。</p>
+</form>
+
+
+<h1>JavaScript 验证输入</h1>
+<p>请输入1到10之间的数字:</p>
+<input id="numb">
+<button type="button" onclick="myFunction()">提交</button>
+<p id="demo"></p>
+<p>2.此提交是按钮，点击按钮运行函数。</p>
+
+
+<form action="demo_form.php" method="post">
+  <input type="text" name="fname" required="required">
+  <input type="submit" value="提交">
+</form>
+<p>点击提交按钮，如果输入框是空的，浏览器会提示错误信息。</p>
+<p>3.此提交是表单自动验证。</p>
+
+<form name="myForm1" action="demo-form.php>" onsubmit="return validateEmailForm();" method="post">
+Email:<input type="text" name="email">
+<input type="submit" value="提交">
+</form>
+</body>
+</html>

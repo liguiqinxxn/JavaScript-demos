@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ZH-cn">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>JavaScript练习</title>
+</head>
+<body>
+<script>
+	function changeImage()
+	{
+		element=document.getElementById('myimage')
+		if (element.src.match("pic_bulbon")) 
+			{
+				element.src="pic_bulboff.gif";
+			}
+			else
+			{
+				element.src="pic_bulbon.gif";
+			}
+	}
+</script>
+<img id="myimage" onclick="changeImage()"
+src="pic_bulboff.gif" width="100" height="180">
+<p>点击灯泡就可以打开或关闭这盏灯。</p>
+
+
+<h1>我的第一段JavaScript</h1>
+<p id="demo">
+	JavaScript 能改变HTML元素的样式。
+</p>
+<script type="text/javascript">
+	function myFunction()
+	{
+		x=document.getElementById('demo')   //找到元素
+		x.style.color="#ff0000";        //改变样式
+	}
+</script>
+<button type="button" onclick="myFunction()">点击这里</button>
+</body>
+</html>

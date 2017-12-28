@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ZH-cn">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>JavaScript练习</title>
+
+<style>
+	#myDIV{
+		background-color: coral;
+		border: 1px solid;
+		padding: 50px;
+		color: white;
+	}
+</style>
+
+</head>
+<body>
+<div id="myDIV">div元素添加了onmousemove事件句柄，鼠标在橘红色的框内移动时会显示随机
+  <p>点击按钮移除DIV的事件句柄。</p>
+  <button onclick="removeHandler()" id="myBtn">点我</button>
+</div>
+<p id="demo"></p>
+
+
+<script>
+	document.getElementById('myDIV').addEventListener("mousemove",myFunction);
+	function myFunction(){
+		document.getElementById('demo').innerHTML=Math.random();
+	}
+	function removeHandler(){
+		document.getElementById("myDIV").removeEventListener("mousemove",myFunction);
+	}
+</script>
+
+</body>
+
+</html>
